@@ -31,6 +31,14 @@ This command starts and keeps the service running as a background service
  /usr/bin/nohup python /opt/Github-Auto-Deploy/GitAutoDeploy.py > /dev/null 2>&1 &
 ```
 
+#### Setup crontab to keep service running
+This shell script checks to make sure the GitAutoDeploy.py script is running every 5 minutes
+
+```bash
+crontab -e
+crontab -u ubuntu -l; echo "*/5 * * * * /opt/chkGitAutoDeploy.sh"
+```
+
 ## Add a new project to auto-deploy
 
 #### 1.  Get initial clones of repositories to be auto-deployed
